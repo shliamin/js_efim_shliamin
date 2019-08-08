@@ -29,8 +29,47 @@ searchForm.addEventListener("submit", (event) => {
   else{
     document.getElementById('togglee').style.visibility = 'hidden';
   }
+  if(keyword){
+    document.getElementById('togglee1').style.visibility = 'visible';
+  }
+  else{
+    document.getElementById('togglee1').style.visibility = 'hidden';
+  }
 });
 
+document.querySelector('button#togglee').onclick = function () {
+    sortList('data-sort');
+}
+document.querySelector('button#togglee1').onclick = function () {
+    sortListDesc('data-sort');
+}
 
+function sortList(sortType) {
+    let items = document.querySelector('.cards');
+    for (let i = 0; i < items.children.length - 1; i++) {
+        for (let j = i; j < items.children.length; j++) {
+            if (+items.children[i].getAttribute(sortType) > +items.children[j].getAttribute(sortType)) {
+                console.log(1);
+                let replacedNode = items.replaceChild(items.children[j], items.children[i]);
+                insertAfter(replacedNode, items.children[i]);
+            }
+        }
+    }
+}
 
+function sortListDesc(sortType) {
+    let items = document.querySelector('.cards');
+    for (let i = 0; i < items.children.length - 1; i++) {
+        for (let j = i; j < items.children.length; j++) {
+            if (+items.children[i].getAttribute(sortType) < +items.children[j].getAttribute(sortType)) {
+                console.log(1);
+                let replacedNode = items.replaceChild(items.children[j], items.children[i]);
+                insertAfter(replacedNode, items.children[i]);
+            }
+        }
+    }
+}
 
+function insertAfter(elem, refElem) {
+    return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+}

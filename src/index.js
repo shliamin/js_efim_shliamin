@@ -5,11 +5,9 @@ const searchMovies = (keyword) => {
     .then(response => response.json())
     .then((data) => {
       data.Search.forEach((result) => {
-        const movie = `<li class="list-inline-item" data-sort = "${result.Year}">
-          <img src="${result.Poster}" alt="">
-          <p>"${result.Title}"</p>
-          <p>Year: ${result.Year}</p>
-        </li>`;
+        const movie = `<div class="card-category" data-sort = "${result.Year}" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${result.Poster})">
+          <p>"${result.Title}" <br/> Year: ${result.Year}</p>
+        </div>`;
 
         results.insertAdjacentHTML("beforeend", movie);
 
@@ -33,8 +31,6 @@ searchForm.addEventListener("submit", (event) => {
   }
 });
 
-// let nav = document.querySelectorAll("#results");
-// уже сохранено в results
-// console.log(nav);
 
-// replacedNode = results.replaceChild(results.children[0], results.children[1]);
+
+

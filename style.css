@@ -1,1 +1,22 @@
+#info{
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Cinzel', serif;
+}
+
+#header{
+  font-family: 'Baloo Chettan', cursive;
+  text-align: center;
+}
+
+i{
+  padding-top: 10px;
+  color: #F0D91D;
+  font-size: 70px;
+}
+
+span{
+  color: #0168D9;
+}
 

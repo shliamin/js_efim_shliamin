@@ -13,7 +13,7 @@ const searchMovies = (keyword) => {
 
       });
     });
-};
+}:
 
 const searchForm = document.querySelector("#search-movies");
 
